@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simon</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <h1 id="level-title">Press A Key to Start</h1>
+    <div class="container">
+      <div lass="row">
+        <div type="button" id="green" class="btn green" data-key="1"></div>
+
+        <div type="button" id="red" class="btn red" data-key="2"></div>
+      </div>
+
+      <div class="row">
+        <div type="button" id="yellow" class="btn yellow" data-key="3"></div>
+        <div type="button" id="blue" class="btn blue" data-key="4"></div>
+      </div>
+    </div>
+    <audio src="sounds/blue.mp3" class="blue" data-key="4"></audio>
+    <audio src="sounds/green.mp3" class="green" data-key="1"></audio>
+    <audio src="sounds/red.mp3" class="red" data-key="2"></audio>
+    <audio src="sounds/yellow.mp3" class="yellow" data-key="3"></audio>
+    <audio src="sounds/wrong.mp3" class="wrong"></audio>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
