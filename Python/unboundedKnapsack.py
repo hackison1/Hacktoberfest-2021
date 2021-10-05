@@ -1,7 +1,9 @@
 # Unbounded knapsack code is completely same as the 0/1 knapsack with just a small difference. In 0/1 knapsack even if the item is included or not it is marked as processed as we pass i-1/n-1 everytime but in unbounded knapsack if the item is not selected then it is considered as processed but if it is selected then it is not marked as processed but it can be used again and again without any bound.
 
 # The only change we make is on line 13,26,39 where in the first argument to max we change 
+
 # n-1 to n or i-1 to i
+
 
 
 def unboundedKnapsack(wt,value,W,n):
