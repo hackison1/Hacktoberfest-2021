@@ -27,7 +27,10 @@ def view(s):
         print(s[i])
 
 def top(s):
-    print("Top element is",s[len(s)-1])
+    if len(s)==0:
+        print("Stack is empty")
+    else:
+        print("Top element is",s[len(s)-1])
     
 def main():
     c=1
