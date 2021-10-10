@@ -1,0 +1,21 @@
+
+        body{
+            background: linear-gradient(to left, #ca39c3, #eb39cd, #cf1b8a);
+        }
+        h2{
+            color: yellow;
+            font-size:xx-large;
+            
+        }
+        h2:hover{
+            color: red;
+            transition: 0.7s;
+            cursor: pointer;
+        }
+        hr{
+            height: 3px;
+            background-color: white;
+            border: 3px dashed greenyellow;
+
+        }
+  
