@@ -38,5 +38,5 @@ Label(root, text="Enter password length",fg="white",bg="black",font="Algerian 12
 Entry(root, textvariable=passlen,font=5).pack(pady=8)
 Button(root, text="Generate Password",bg="black",fg="white",pady=15,font="Algerian 12", command=generate).pack(pady=7)
 Entry(root, textvariable=passstr,font=5).pack(pady=8)
-Button(root, text="Copy to clipboard", bg="black",fg="white",pady=15,font="Algerian 12",command=copytoclipboard).pack()
+Button(root, text="Copy to Clipboard", bg="black",fg="white",pady=15,font="Algerian 12",command=copytoclipboard).pack()
 root.mainloop()
