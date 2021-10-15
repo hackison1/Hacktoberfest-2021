@@ -8,6 +8,7 @@ void getFibonacii(int a,int b,int n){
         getFibonacii(a,b,n-1);
     }
 }
+//main function starts
 int main(){
     int a=0,b=1,n;
     printf("How many numbers you want? ");
