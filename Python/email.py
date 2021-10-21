@@ -1,4 +1,5 @@
 import smtplib, ssl
+import this
 
 port = 465  # For SSL
 password = input("Type your password and press enter: ")
