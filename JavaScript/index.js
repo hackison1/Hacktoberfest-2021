@@ -5,7 +5,7 @@ const { PORT, KEY } = require('./secret')
 
 // middlewares
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: false}))
 
 // render html file
 app.get('/', (req,res) => {
