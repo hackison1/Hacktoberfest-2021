@@ -1,73 +1,83 @@
 #include <iostream>
-#include <limits>
-#include <vector>
 
-void merge(int A[], int p, int q, int r)
+void merge(int *array, int left, int middle, int right)
 {
+    int i, j, k;
+    int n1 = middle - left + 1;
+    int n2 = right - middle;
 
-	int n1 = q - p + 1 ;
-	int n2 = r - q  ;
+    int *L = new int[n1], *R = new int[n2];
 
-	std::vector<int>L;
-	std::vector<int>R;
+    for (i = 0; i < n1; i++)
+        L[i] = array[left + i];
+    for (j = 0; j < n2; j++)
+        R[j] = array[middle + 1 + j];
 
-	for (int i = 0; i <= n1; i++)
-	{
-		L.push_back(0);
-	}
-	for (int j = 0; j <= n2; j++)
-	{
-		R.push_back(0);
-	}
+    i = 0;
+    j = 0;
+    k = left;
+    while (i < n1 || j < n2)
+    {
+        if (j >= n2 || (i < n1 && L[i] <= R[j]))
+        {
+            array[k] = L[i];
+            i++;
+        }
+        else
+        {
+            array[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+    std::cout << "n1 : " << n1 << " n2 : " << n2 << std::endl;
+    std::cout << "Left : ";
+    for (int i = 0; i < n1; i++)
+    {
+        std::cout << L[i] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "Right : ";
+    for (int i = 0; i < n2; i++)
+    {
+        std::cout << R[i] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "Array : " << std::endl;
+    for (int i = 0; i < 10; i++)
+    {
+        std::cout << array[i] << " ";
+    }
+    std::cout << std::endl
+              << std::endl;
 
-
-	for (int i = 0; i < n1; i++)
-	{
-	    L[i] = A[p + i];
-	}
-	for (int j = 0; j < n2; j++)
-	{
-		R[j] = A[q+j+1];
-	}
-
-	int i = 0;
-	int j = 0;
-
-	L[n1] = INT_MAX;
-	R[n2] = INT_MAX;
-
-	for(int k = p ; k <= r; k++)
-	{
-		if (L[i] <= R[j])
-		{
-			A[k] = L[i];
-			i = i + 1;
-		}
-		else
-		{
-			A[k] = R[j];
-			j = j + 1;
-		}
-	}
+    delete[] L;
+    delete[] R;
 }
-void MergeSort(int A[], int p, int r)
+
+void mergeSort(int *array, int left, int right)
 {
-	if (p < r)
-	{ 
-		int q =(p + r) / 2;
-		MergeSort(A, p, q);
-		MergeSort(A, q + 1, r);
-		merge(A, p, q, r);
+    if (left < right)
+    {
+        int middle = left + (right - left) / 2;
+        mergeSort(array, left, middle);
+        mergeSort(array, middle + 1, right);
+        merge(array, left, middle, right);
     }
 }
 
 int main()
 {
-    int arr[] = {1, 2, 9, 2, 4, 5}; 
-	int arrsize = sizeof(arr) / sizeof(arr[0]);
-	MergeSort(arr,0,(arrsize-1));
-    for (int i = 0; i < arrsize; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
+    int array[] = {234, 234, 2134, 23, 5, 245, 34, 346, 567, 76};
+
+    size_t n = sizeof(array) / sizeof(array[0]);
+    mergeSort(array, 0, n - 1);
+
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << *(array + i) << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
